@@ -1,0 +1,69 @@
+<section fxLayoutAling ="center" class="sesion">
+  <mat-card>
+    <div class="titulo">
+      Metodología
+      <button mat-icon-button color="primary"  (click)="GetMetodologia()"
+      tooltip="matTooltip"
+      matTooltip="Nueva Metodología"
+      matTooltipHideDelay="100"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+      <button  mat-icon-button mat-dialog-close color="warn" class="cerrar"
+      tooltip="matTooltip"
+      matTooltip="Cerrar"
+      matTooltipHideDelay="100"><mat-icon>close</mat-icon></button>
+     </div>
+    <mat-form-field>
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+
+    <table mat-table
+      [dataSource]="dataSource" multiTemplateDataRows
+      class="mat-elevation-z8">
+
+  <ng-container matColumnDef="Id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre</th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="Acciones">
+    <th mat-header-cell *matHeaderCellDef style="width: 130px;">  </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="primary" (click)="GetMetodologiaEdit(element)"
+      tooltip="matTooltip"
+      matTooltip="Editar Sede"
+      matTooltipHideDelay="100">
+      <mat-icon>edit</mat-icon>
+    </button>
+      <button mat-icon-button color="warn" (click)="DeleteMetodologia(element)"
+        tooltip="matTooltip"
+        matTooltip="Eliminar Metodología"
+        matTooltipHideDelay="100">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+  </mat-card>
+
+  </section>
+
+
+

@@ -1,0 +1,61 @@
+<h1 mat-dialog-title>{{tituloAccion}}</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="frmGetProducto">
+    <mat-grid-list cols="1" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Código</mat-label>
+          <input type="text" readonly  matInput formControlName="codigo" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+        <mat-label>Tipo de Producto</mat-label>
+          <mat-select  formControlName="CodTipoProducto" >
+            <mat-option *ngFor="let item of ListaTipoProductos" [value]="item.id">
+           {{item.nombre}}
+            </mat-option>
+           </mat-select>
+          </mat-form-field>
+
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text"  matInput formControlName="nombre" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha Publicación o Registro</mat-label>
+          <input type="date"   matInput formControlName="fechaPublicacion" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Entidad de Publicaión</mat-label>
+          <input type="text"  matInput formControlName="entidad" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Número de Registro</mat-label>
+          <input type="text"  matInput formControlName="nroRegistro" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button color="primary"
+  (click)="Guardar()"
+  [disabled]="frmGetProducto.invalid">{{botonAccion}}</button>
+</div>
+

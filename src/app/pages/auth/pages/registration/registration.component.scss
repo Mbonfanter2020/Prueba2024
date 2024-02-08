@@ -1,0 +1,45 @@
+mat-form-field{
+  font-size: 14px;
+  width: 90%;
+}
+
+mat-card{
+  width: 90%;
+  text-align: center center;
+  margin-top: 5px;
+  margin-right: 0;
+  font-size: 8px;
+}
+
+
+.custom-tile {
+  height: 70px; /* Establece la altura deseada en píxeles o cualquier otra unidad de medida */
+}
+
+.mat-mdc-form-field,.mat-mdc-floating-label{
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing:antialiased;
+  font-family:var(--mdc-typography-body1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+  font-size:var(--mdc-typography-body1-font-size, 13px);//fuente
+  line-height:var(--mdc-typography-body1-line-height, 10px);
+  font-weight:var(--mdc-typography-body1-font-weight, 500);
+  letter-spacing:var(--mdc-typography-body1-letter-spacing, 0.03125em);
+  text-decoration:var(--mdc-typography-body1-text-decoration, inherit);
+  text-transform:var(--mdc-typography-body1-text-transform, none);
+  height: 60px;
+
+}
+
+.my-custom-tile {
+  justify-content: flex-start; /* Alineación a la izquierda */
+  padding-left: 10px;
+}
+
+.my-custom-icono{
+  justify-items: center center;
+  align-items: flex-start;
+}
+
+.texto-hacia-arriba {
+  align-items: flex-start; /* Esto alinea el contenido hacia arriba */
+}

@@ -1,0 +1,122 @@
+<section fxLayoutAling ="center" class="sesion">
+  <mat-card>
+    <div class="titulo">
+      Causas de Problema
+      </div>
+     <mat-grid-list cols="1" rowHeight="50px" >
+      <mat-grid-tile>
+        <mat-form-field >
+
+          <mat-select [(ngModel)] = "idSolicitud"  (selectionChange)="cargarCausas($event)" placeholder="Seleccione una solicitud">
+              <mat-option *ngFor="let item of listaSolicitudes" [value]="item.id">
+             {{item.titulo}}
+              </mat-option>
+          </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <div class="subtitulo">
+      Causas Directas
+      <button mat-icon-button color="primary"  (click)="Add()"
+      tooltip="matTooltip"
+      matTooltip="Adicionar causa directa"
+      matTooltipHideDelay="100">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <mat-form-field >
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="demo-table"  >
+        <!-- Position Column -->
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Descripcion">
+          <th mat-header-cell *matHeaderCellDef> Descipción </th>
+          <td mat-cell *matCellDef="let element"> {{element.descripcionCausa}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Acciones">
+          <th mat-header-cell *matHeaderCellDef style="width: 150px;">  </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="Edit(element)" >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="Delete(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        (click)="onRowFocusOut(row.id)"
+        [ngClass]="{ 'selected-row': row.id === selectedRowId }"
+         ></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of listaCausas elements">
+      </mat-paginator>
+    </div>
+    <br>
+    <div class="subtitulo">
+      Causas indirectas
+      <button mat-icon-button color="primary"  (click)="AddEsp()"
+      tooltip="matTooltip"
+      matTooltip="Adicionar causa indirecta"
+      matTooltipHideDelay="100">
+        <mat-icon>add</mat-icon>
+      </button>
+      </div>
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter2($event)" placeholder="Filtrar" >
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource2" class="demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Descripcion">
+          <th mat-header-cell *matHeaderCellDef> Descipción </th>
+          <td mat-cell *matCellDef="let element"> {{element.descripcionCausa}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Acciones">
+          <th mat-header-cell *matHeaderCellDef style="width: 150px;">  </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="EditEsp(element)" >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="DeleteEsp(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+
+
+  </mat-card>
+
+  </section>
+

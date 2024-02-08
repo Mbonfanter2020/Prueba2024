@@ -1,0 +1,86 @@
+mat-form-field{
+  width: 100%;
+}
+
+mat-card{
+  width: 80%;
+  text-align: center center;
+  margin-top: 5px;
+  margin-right: 0;
+  font-size: 8px;
+}
+
+.sesion{
+  display: flex;
+  justify-content: center;
+}
+
+
+.demo-table {
+  width: 100%;
+
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+
+.titulo{
+  color: blueviolet;
+  margin-top: 5px;
+  font-family: "Roboto","sans-serif";
+  font-size: 18px;
+  font-weight:700 ;
+  margin-bottom: 5px;
+}
+
+.subtitulo{
+  color: rgb(125, 43, 226);
+  //margin-top: 2px;
+  font-family: "Roboto","sans-serif";
+  font-size: 16px;
+  font-weight:700 ;
+}
+
+.mat-mdc-table {
+  width: 100%;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.mat-column-name {
+  height: 30px;
+}
+
+
+.selected-row {
+  background-color: lightblue; /* Puedes cambiar el color a tu preferencia */
+  cursor: pointer; /* Opcional: para cambiar el cursor cuando el mouse esté sobre la fila seleccionada */
+}
+
+
+.mat-mdc-form-field,.mat-mdc-floating-label{
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing:antialiased;
+  font-family:var(--mdc-typography-body1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+  font-size:var(--mdc-typography-body1-font-size, 13px);//fuente
+  line-height:var(--mdc-typography-body1-line-height, 10px);
+  font-weight:var(--mdc-typography-body1-font-weight, 500);
+  letter-spacing:var(--mdc-typography-body1-letter-spacing, 0.03125em);
+  text-decoration:var(--mdc-typography-body1-text-decoration, inherit);
+  text-transform:var(--mdc-typography-body1-text-transform, none);
+  height: 60px;
+
+}
+

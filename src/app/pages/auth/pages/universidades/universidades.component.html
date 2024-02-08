@@ -1,0 +1,58 @@
+
+<h1 mat-dialog-title>{{tituloAccion}}</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="frmGetUniversidad">
+
+    <mat-grid-list cols="2" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Alías</mat-label>
+          <input type="text"   matInput formControlName="alias" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha Ingreso </mat-label>
+          <input type="text" readonly matInput formControlName="fechaIngreso" [value]="fechaIngreso" autocomplete="off">
+         <!-- <input type="datetime"  readonly  matInput formControlName="fechaIngreso" autocomplete="off"> -->
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  <mat-grid-list cols="1" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo Documento</mat-label>
+          <mat-select formControlName="tipoDoc" autocomplete="off">
+            <mat-option *ngFor="let item of listaTipoDocumento" [value]="item.id">
+           {{item.nombre}}
+            </mat-option>
+           </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nro Identificación</mat-label>
+          <input type="text"  matInput formControlName="identificacion" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text"  matInput formControlName="nombre" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Cancelar</button>
+  <button mat-raised-button color="primary"
+  (click)="RegistrarUniversiad()"
+  [disabled]="frmGetUniversidad.invalid">{{botonAccion}}</button>
+</div>

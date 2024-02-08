@@ -1,0 +1,42 @@
+mat-form-field{
+  width: 100%;
+}
+
+.titulo{
+  color: blueviolet;
+  margin: 5px;
+  font-family: "Roboto","sans-serif";
+  font-size: 24px;
+  font-weight:700 ;
+}
+
+
+mat-card{
+  width: 90%;
+  text-align: center center;
+  margin: 10px;
+}
+
+
+.sesion{
+  display: flex;
+  justify-content: center;
+}
+
+
+.mat-card-container {
+  display: flex;
+  justify-content: space-between; /* Para espaciar los MatCards */
+}
+
+
+
+.subtitulo{
+  color:cadetblue;
+  margin: 10px;
+  font-family: "Roboto","sans-serif";
+  font-size: 16px;
+  font-weight:700 ;
+}
+
+

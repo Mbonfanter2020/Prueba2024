@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Actualizar Rol</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="frmGetRol">
+    <mat-grid-list cols="1" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Rol Anterior</mat-label>
+          <input type="text" readonly  matInput formControlName="anterior" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+        <mat-label>Nuevo Rol</mat-label>
+          <mat-select formControlName="CodGrupo" >
+            <mat-option *ngFor="let item of ListaGrupos" [value]="item.id">
+           {{item.name}}
+            </mat-option>
+           </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button color="primary"
+  (click)="Guardar()"
+  [disabled]="frmGetRol.invalid">Editar</button>
+</div>
+

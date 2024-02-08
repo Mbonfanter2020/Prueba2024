@@ -1,0 +1,140 @@
+
+<h1 mat-dialog-title>Registrar</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="frmGetUsuairo">
+
+    <mat-grid-list cols="2" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Código Interno</mat-label>
+          <input type="text" readonly  matInput formControlName="codigo" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha Ingreso </mat-label>
+          <input type="text" readonly matInput formControlName="fechaIngreso" [value]="fechaIngreso" autocomplete="off">
+         <!-- <input type="datetime"  readonly  matInput formControlName="fechaIngreso" autocomplete="off"> -->
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile class="fechas">
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo Documento</mat-label>
+          <mat-select formControlName="tipoDoc" autocomplete="off">
+            <mat-option *ngFor="let item of listaTipoDocumento" [value]="item.id">
+           {{item.codigoIdentificacion}}
+            </mat-option>
+           </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nro Identificación</mat-label>
+          <input type="text"  matInput formControlName="identificacion" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Primer Nombre</mat-label>
+          <input type="text"  matInput formControlName="primerNombre" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Segundo Nombre</mat-label>
+          <input type="text"  matInput formControlName="SegundoNombre" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Primer Apellido</mat-label>
+          <input type="text"  matInput formControlName="primerApellido" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Segundo Apellido</mat-label>
+          <input type="text"  matInput formControlName="SegundoApellido" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <mat-grid-list cols="8" rowHeight="70px">
+      <mat-grid-tile colspan="6" class="my-custom-tile">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text"  matInput formControlName="nombre" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile class="my-custom-icono" colspan="2">
+        <button mat-raised-button   color="primary" (click)="Rellenar()"
+        tooltip="matTooltip"
+        matTooltip="Rellenar nombre"
+        matTooltipHideDelay="100"
+        >
+        Rellenar
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="2" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input type="text"  matInput formControlName="usaurio" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input type="email"  matInput formControlName="correo" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Celular</mat-label>
+          <input type="text"  matInput formControlName="celular" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Teléfono</mat-label>
+          <input type="text"  matInput formControlName="telefono" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Clave</mat-label>
+          <input type="password"  matInput formControlName="clave" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Confirmar Clave</mat-label>
+          <input type="password"  matInput formControlName="clave2" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Cancelar</button>
+  <button mat-raised-button color="primary"
+  (click)="registrarUsuario()"
+  [disabled]="frmGetUsuairo.invalid">Registrar</button>
+</div>

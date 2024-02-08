@@ -1,0 +1,84 @@
+<h1 mat-dialog-title>{{tituloAccion}}</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="frmGetSolModalidad">
+    <mat-grid-list cols="8" rowHeight="70px" >
+      <mat-grid-tile colspan="2" >
+        <mat-form-field appearance="outline" >
+          <mat-label>Fecha Asignación </mat-label>
+          <input type="date"    matInput formControlName="fechaAsignacion"   autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="1" >
+
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2" >
+        <mat-form-field appearance="outline" c >
+          <mat-label>Fecha Entrega </mat-label>
+          <input type="date"  matInput formControlName="fechaEntrega" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="1" >
+
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2" >
+        <mat-form-field appearance="outline" c >
+          <mat-label>Porcentaje (%)</mat-label>
+          <input type="number"   matInput formControlName="porcentaje" autocomplete="off"  >
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+        <mat-label>Producto</mat-label>
+          <mat-select  formControlName="codProducto"  (selectionChange)="CargarInfoMetodologia($event)"  >
+            <mat-option *ngFor="let item of ListaProducto" [value]="item.id">
+              {{item.titulo}}
+            </mat-option>
+           </mat-select>
+          </mat-form-field>
+
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+        <mat-label>Estudiante</mat-label>
+          <mat-select  formControlName="codEstudiante" >
+            <mat-option *ngFor="let item of ListaEstudiantes" [value]="item.id">
+           {{item.nombre}}
+            </mat-option>
+           </mat-select>
+          </mat-form-field>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="80px">
+      <mat-grid-tile  >
+        <mat-form-field appearance="outline"  >
+          <mat-label>Descipción del tipo producto</mat-label>
+          <textarea matInput formControlName="Descripcion"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="2"
+            cdkAutosizeMaxRows="3"></textarea>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button color="primary"
+  (click)="Guardar()"
+  [disabled]="frmGetSolModalidad.invalid">{{botonAccion}}</button>
+</div>
+

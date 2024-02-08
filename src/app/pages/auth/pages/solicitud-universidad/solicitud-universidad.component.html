@@ -1,0 +1,76 @@
+
+
+<section fxLayoutAling ="center" class="sesion">
+<mat-card>
+  <div class="subtitulo">
+    Solicitar Vinculación
+    <button mat-icon-button color="primary"  (click)="SolicitarUniversidad()"
+    tooltip="matTooltip"
+    matTooltip="solicitar vinculación"
+    matTooltipHideDelay="100"
+    [disabled] = "isVinculado"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+   </div>
+
+   <mat-form-field >
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="demo-table"  >
+      <!-- Position Column -->
+      <ng-container matColumnDef="Codigo">
+        <th mat-header-cell *matHeaderCellDef> Alías </th>
+        <td mat-cell *matCellDef="let element"> {{element.alias}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Identificacion">
+        <th mat-header-cell *matHeaderCellDef> Identificación </th>
+        <td mat-cell *matCellDef="let element"> {{element.identificacion}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef style="width: 140px;">  </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="VerUniveridad()"
+            tooltip="matTooltip"
+            matTooltip="Ver Universidad"
+            matTooltipHideDelay="100">
+            <mat-icon>visibility</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn" (click)="DeleteSolicitud(element)"
+          tooltip="matTooltip"
+          matTooltip="Eliminar Solicitud"
+          matTooltipHideDelay="100">
+          <mat-icon>delete</mat-icon>
+        </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of dataSource elements">
+    </mat-paginator>
+
+
+  </div>
+  <p></p>
+  <button mat-raised-button mat-dialog-close color="warn">Cancelar</button>
+</mat-card>
+</section>
+

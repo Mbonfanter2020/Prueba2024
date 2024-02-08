@@ -1,0 +1,53 @@
+table {
+  width: 100%;
+}
+mat-form-field{
+  width: 100%;
+}
+
+mat-card{
+  width: 80%;
+  text-align: center center;
+  margin-top: 5px;
+  margin-right: 0;
+
+}
+
+
+.sesion{
+  display: flex;
+  justify-content: center;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+
+.titulo{
+  color: blueviolet;
+  margin-top: 5px;
+  font-family: "Roboto","sans-serif";
+  font-size: 24px;
+  font-weight:700 ;
+}
+
+.espacio{
+  height: 60px;
+}
+
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}

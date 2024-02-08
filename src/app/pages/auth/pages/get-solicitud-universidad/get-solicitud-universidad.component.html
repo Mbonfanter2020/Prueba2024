@@ -1,0 +1,35 @@
+
+<h1 mat-dialog-title>Solicitar Universidad</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="frmGetParticipante">
+    <mat-grid-list cols="1" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha Solicitud </mat-label>
+          <input type="text" readonly matInput formControlName="fechaIngreso" [value]="fechaIngreso" autocomplete="off">
+         <!-- <input type="datetime"  readonly  matInput formControlName="fechaIngreso" autocomplete="off"> -->
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+        <mat-label>Universidad</mat-label>
+          <mat-select formControlName="codUniversidad" >
+            <mat-option *ngFor="let item of listaUniversidad" [value]="item.id">
+           {{item.nombre}}
+            </mat-option>
+           </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button color="primary"
+  (click)="Guardar()"
+  [disabled]="frmGetParticipante.invalid">Adicionar</button>
+</div>

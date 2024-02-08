@@ -1,0 +1,77 @@
+mat-form-field{
+  width: 100%;
+}
+
+.titulo{
+  color: blueviolet;
+  margin: 5px;
+  font-family: "Roboto","sans-serif";
+  font-size: 24px;
+  font-weight:700 ;
+}
+
+
+mat-card{
+  width: 90%;
+  text-align: center center;
+  margin-top: 5px;
+  margin-right: 0;
+
+}
+
+
+.sesion{
+  display: flex;
+  justify-content: center;
+}
+
+
+.mat-card-container {
+  display: flex;
+  justify-content: space-between; /* Para espaciar los MatCards */
+}
+
+.mat-card-1 {
+  flex-basis: calc(50% - 10px); /* Ancho del primer MatCard */
+  margin: 7px;
+}
+
+.mat-card-2 {
+  flex-basis: calc(50% - 10px);
+  margin: 7px;
+}
+
+.subtitulo{
+  color:cadetblue;
+  margin: 10px;
+  font-family: "Roboto","sans-serif";
+  font-size: 16px;
+  font-weight:700 ;
+}
+
+
+h1, h2 {
+  margin-left: 5px; /* Elimina el margen predeterminado de los encabezados */
+}
+
+h1{
+  font-weight:500;
+}
+h2{
+  font-weight:300;
+
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Dividir en 1 parte y 2 partes */
+  grid-gap: 10px; /* Espacio entre las celdas */
+  width: 90%; /* Ancho total del contenedor (ajusta según tus necesidades) */
+}
+
+
+.grid-item {
+  text-align: left; /* Alinea el contenido a la derecha */
+  line-height: 1px;
+}
+

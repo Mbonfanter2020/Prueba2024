@@ -1,0 +1,142 @@
+
+
+<section fxLayoutAling ="center" class="sesion">
+<mat-card>
+  <div class="titulo">
+    Mi Perfil
+   </div>
+  <div class="mat-card-container">
+    <mat-card class="mat-card-1">
+      <div class="subtitulo">
+        Datos Personales
+        <button mat-icon-button color="primary"  (click)="SolicitarUniversidad()"
+        tooltip="matTooltip"
+        matTooltip="Editar Información"
+        matTooltipHideDelay="100"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+       </div>
+
+       <div class="grid-container">
+        <div class="grid-item">
+          <h1>{{labelNombre}}</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{Tercero.nombre}}</h2>
+        </div>
+        <div class="grid-item">
+          <h1>Tipo Identificacón:</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{TipoIdentificacion.nombre}} ({{TipoIdentificacion.codigoIdentificacion}})</h2>
+        </div>
+        <div class="grid-item">
+          <h1>Nro. Identificación:</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{Tercero.identificacion}}</h2>
+        </div>
+        <div class="grid-item">
+          <h1>Género:</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{Tercero.genero}}</h2>
+        </div>
+        <div class="grid-item">
+          <h1>{{labelFechaNac}}</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{Tercero.fechaNacimiento}}</h2>
+        </div>
+        <div class="grid-item">
+          <h1>Celular:</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{Tercero.celular}}</h2>
+        </div>
+        <div class="grid-item">
+          <h1>Teléfono:</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{Tercero.telefono}}</h2>
+        </div>
+        <div class="grid-item">
+          <h1>Correo:</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{Tercero.email}}</h2>
+        </div>
+        <div class="grid-item">
+          <h1>Dirección:</h1>
+        </div>
+        <div class="grid-item">
+          <h2>{{Tercero.direccion}}</h2>
+        </div>
+      </div>
+
+    </mat-card>
+
+    <mat-card class="mat-card-2">
+      <!-- Contenido del segundo MatCard -->
+       <div class="subtitulo">
+        Universidades Vinculadas
+        <button mat-icon-button color="primary"  (click)="SolicitarUniversidad()"
+        tooltip="matTooltip"
+        matTooltip="Vincularse a una universidad"
+        matTooltipHideDelay="100"
+        [disabled]="isVinculado"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+       </div>
+
+       <mat-form-field >
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
+      </mat-form-field>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="demo-table"  >
+          <!-- Position Column -->
+          <ng-container matColumnDef="Codigo">
+            <th mat-header-cell *matHeaderCellDef> Alías </th>
+            <td mat-cell *matCellDef="let element"> {{element.alias}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="Identificacion">
+            <th mat-header-cell *matHeaderCellDef> Identificación </th>
+            <td mat-cell *matCellDef="let element"> {{element.identificacion}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+
+
+
+          <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef style="width: 60px;">  </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary" (click)="VerUniveridad()" >
+                <mat-icon>visibility</mat-icon>
+              </button>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons
+                       aria-label="Select page of dataSource elements">
+        </mat-paginator>
+      </div>
+    </mat-card>
+
+  </div>
+
+</mat-card>
+</section>
+

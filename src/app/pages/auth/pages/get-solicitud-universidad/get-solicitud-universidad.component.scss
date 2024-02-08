@@ -1,0 +1,18 @@
+mat-form-field{
+  font-size: 14px;
+  width: 95%;
+}
+
+.mat-mdc-form-field,.mat-mdc-floating-label{
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing:antialiased;
+  font-family:var(--mdc-typography-body1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+  font-size:var(--mdc-typography-body1-font-size, 14px);//fuente
+  line-height:var(--mdc-typography-body1-line-height, 10px);
+  font-weight:var(--mdc-typography-body1-font-weight, 500);
+  letter-spacing:var(--mdc-typography-body1-letter-spacing, 0.03125em);
+  text-decoration:var(--mdc-typography-body1-text-decoration, inherit);
+  text-transform:var(--mdc-typography-body1-text-transform, none);
+  height: 60px;
+
+}

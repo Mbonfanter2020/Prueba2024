@@ -1,0 +1,44 @@
+mat-form-field{
+  width: 100%;
+}
+
+
+
+
+mat-card{
+  width: 500px;
+  text-align: center center;
+  margin-top: 30px;
+  margin-right: 0;
+
+}
+
+.sesion{
+  display: flex;
+  justify-content: center;
+}
+
+.titulo{
+  color: blueviolet;
+  margin-top: 5px;
+  font-family: "Roboto","sans-serif";
+  font-size: 24px;
+  font-weight:700 ;
+}
+
+
+.mat-mdc-form-field,.mat-mdc-floating-label{
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing:antialiased;
+  font-family:var(--mdc-typography-body1-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+  font-size:var(--mdc-typography-body1-font-size, 15px);//fuente
+  line-height:var(--mdc-typography-body1-line-height, 10px);
+  font-weight:var(--mdc-typography-body1-font-weight, 500);
+  letter-spacing:var(--mdc-typography-body1-letter-spacing, 0.03125em);
+  text-decoration:var(--mdc-typography-body1-text-decoration, inherit);
+  text-transform:var(--mdc-typography-body1-text-transform, none);
+  height: 65px;
+
+}
+
+

@@ -1,0 +1,110 @@
+<mat-sidenav-container>
+  <mat-sidenav #menu>
+    <app-menu-list *ngIf="fondo"></app-menu-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="imagen" [ngStyle]="{ 'background-image': 'url(' + url + ')' }"  >
+      <app-header *ngIf="fondo" (menuToggle)="menu.toggle()"></app-header>
+
+      <main>
+        <button
+          mat-raised-button
+          color="secundary"
+          *ngIf="!logueado"
+          (click)="ControlarFondo()"
+        >
+          {{ textoBoton }}
+        </button>
+        <router-outlet *ngIf="fondo"></router-outlet>
+        <section fxLayoutAling="center" class="sesion"  *ngIf="MostarHome()">
+          <mat-card class="card-principal">
+            <mat-grid-list cols="5" rowHeight="100" class="diviones">
+              <mat-grid-tile>
+                <mat-card class="cards-estado">
+                  <mat-card-content>
+                    <p>{{ modeloEstados.Pendiente }}</p>
+                    <mat-divider></mat-divider>
+                    <p>Pendiente</p>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-card class="cards-estado">
+                  <mat-card-content>
+                    <p>{{ modeloEstados.Asignada }}</p>
+                    <mat-divider></mat-divider>
+                    <p>Asignada</p>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-card class="cards-estado">
+                  <mat-card-content>
+                    <p>{{ modeloEstados.EnProceso }}</p>
+                    <mat-divider></mat-divider>
+                    <p>En Proceso</p>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-card class="cards-estado">
+                  <mat-card-content>
+                    <p>{{ modeloEstados.Terminada }}</p>
+                    <mat-divider></mat-divider>
+                    <p>Terminada</p>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-card class="cards-estado">
+                  <mat-card-content>
+                    <p>{{ modeloEstados.Rechazada }}</p>
+                    <mat-divider></mat-divider>
+                    <p>Rechazada</p>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="5" rowHeight="350px">
+
+              <mat-grid-tile colspan="2">
+                <mat-card>
+                  <mat-card-content>
+                    <div style="text-align: center">
+                      <apx-chart
+                        [series]="chartTipoApoyo.series"
+                        [chart]="chartTipoApoyo.chart"
+                        [xaxis]="chartTipoApoyo.xaxis"
+                        [title]="chartTipoApoyo.title"
+                      ></apx-chart>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+
+              <mat-grid-tile colspan="3">
+                <mat-card>
+                  <mat-card-content>
+                    <div style="text-align: center">
+                      <apx-chart
+                        [series]="chartTipoNivel.series"
+                        [chart]="chartTipoNivel.chart"
+                        [xaxis]="chartTipoNivel.xaxis"
+                        [title]="chartTipoNivel.title"
+                      ></apx-chart>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
+        </section>
+      </main>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

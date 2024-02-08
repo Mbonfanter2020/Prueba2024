@@ -1,0 +1,115 @@
+
+<h1 mat-dialog-title>{{tituloAccion}}</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="frmGetSolicitud">
+
+    <mat-grid-list cols="1" rowHeight="85px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Código</mat-label>
+          <input type="text" readonly  matInput formControlName="codigo" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Titulo</mat-label>
+          <input type="text"  matInput formControlName="titulo" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="140px">
+      <mat-grid-tile  >
+        <mat-form-field appearance="outline"  >
+          <mat-label>Descipción del problema</mat-label>
+          <textarea matInput formControlName="problema"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="4"
+            cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="86px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo Acompañamiento</mat-label>
+          <mat-select required formControlName="tipoApoyo" >
+            <mat-option value="Investigación">Investigación</mat-option>
+            <mat-option value="Proyección Social">Proyección Social</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nivel Problema</mat-label>
+          <mat-select required formControlName="nivelProblama" >
+            <mat-option value="Individual">Individual</mat-option>
+            <mat-option value="Familiar">Familiar</mat-option>
+            <mat-option value="Comunidad">Comunidad</mat-option>
+            <mat-option value="Territorio">Territorio</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Departamento</mat-label>
+          <mat-select formControlName="codDepartamento" >
+            <mat-option *ngFor="let item of listaDepartamentos" [value]="item.id">
+           {{item.nombre}}
+            </mat-option>
+           </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+        <mat-label>Ciudad</mat-label>
+          <mat-select formControlName="codCiudad" >
+            <mat-option ngForm *ngFor="let item of listaCiudad" [value]="item.id">
+           {{item.nombre}}
+            </mat-option>
+           </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+
+  </form>
+
+  <form>
+    <mat-form-field class="palabras-clave">
+      <mat-label>Palabras Claves</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Palabras comunes ">
+        <mat-chip-row *ngFor="let palabra of palabras" (removed)="removePalabra(palabra)">
+          {{palabra}}
+          <button matChipRemove [attr.aria-label]="'remove ' + palabra">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      </mat-chip-grid>
+      <input placeholder="Nueva palabra..." #palabraInput [formControl]="palabraCtrl"
+        [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="addPalabra($event)"/>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedPalabra($event)">
+        <mat-option *ngFor="let palabra of filtroPalabras | async" [value]="palabra">
+          {{palabra}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button color="primary"
+  (click)="GuardarEditarSolicitud()"
+  [disabled]="frmGetSolicitud.invalid">{{botonAccion}}</button>
+</div>

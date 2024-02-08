@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{tituloAccion}}</h1>
+<div mat-dialog-content>
+  <form  [formGroup]="frmGetFacultad">
+    <mat-grid-list cols="1" rowHeight="70px" >
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Código</mat-label>
+          <input type="text" readonly  matInput formControlName="codigo" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+        <mat-label>Facultad</mat-label>
+          <mat-select  formControlName="CodFacultad" >
+            <mat-option *ngFor="let item of ListaFacultad" [value]="item.id">
+           {{item.nombre}}
+            </mat-option>
+           </mat-select>
+          </mat-form-field>
+
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text"  matInput formControlName="nombre" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button color="primary"
+  (click)="Guardar()"
+  [disabled]="frmGetFacultad.invalid">{{botonAccion}}</button>
+</div>
+

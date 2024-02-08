@@ -1,0 +1,172 @@
+[{
+  "text": "Home",
+  "icon": "dashboard",
+  "routerLink": "/",
+  "model": "Home"
+},
+{
+  "text": "Solicitudes",
+  "icon": "topic",
+  "model": "Solicitudes",
+  "children": [{
+          "text": "Admin - Solicitud",
+          "icon": "contact_mail",
+          "routerLink": "auth/lista-solicitudes-admin",
+          "model": "solicitud_admin"
+      },
+      {
+        "text": "Postular Solicitud",
+        "icon": "contact_mail",
+        "routerLink": "auth/lista-solicitudes",
+        "model": "view_solicitud"
+    },
+      {
+      "text": "Solicitud - Causas",
+      "icon": "sticky_note_2",
+      "routerLink": "auth/solicitudes-causas",
+      "model": "view_solicitudcausa"
+     }
+     ,
+      {
+          "text": "Solicitud - Efectos",
+          "icon": "chat_error",
+          "routerLink": "auth/solicitudes-efectos",
+          "model": "view_solicitudefecto"
+      },
+      {
+          "text": "Solicitud - Documentos",
+          "icon": "upload_file",
+          "routerLink": "auth/solicitudes-documentos",
+          "model": "view_solicituddocumentossoporte"
+      }
+  ]
+},
+{
+  "text": "Actividades",
+  "icon": "analytics",
+  "model": "Gestionar",
+  "children": [{
+          "text": "Tipo de Productos",
+          "icon": "account_box",
+          "routerLink": "auth/tipo-producto",
+          "model": "view_solicitudmetodologiatipoproducto"
+      },
+      {
+        "text": "Seguimiento",
+        "icon": "account_box",
+        "routerLink": "auth/estudiantes",
+        "model": "view_solicitudtarea"
+    }
+  ]
+},
+{
+  "text": "Datos - Institución",
+  "icon": "add_home_work",
+  "model": "Datos Institución",
+  "children": [{
+          "text": "Universidad",
+          "icon": "apartment",
+          "routerLink": "auth/universidad",
+          "model": "view_universidad"
+      },
+      {
+          "text": "Sede",
+          "icon": "factory",
+          "routerLink": "auth/sedes",
+          "model": "view_universidad"
+      },
+      {
+          "text": "Facultad",
+          "icon": "domain",
+          "routerLink": "auth/facultad",
+          "model": "view_facultad"
+      }
+      ,
+      {
+          "text": "Escuela",
+          "icon": "shelves",
+          "routerLink": "auth/escuela",
+          "model": "view_escuela"
+      }
+      ,
+      {
+        "text": "Programa",
+        "icon": "domain_disabled",
+        "routerLink": "auth/programa",
+        "model": "view_programa"
+      }
+  ]
+},
+{
+  "text": "Investigación",
+  "icon": "receipt",
+  "model": "Productos",
+  "children": [
+      {
+          "text": "Tipo de producto",
+          "icon": "category",
+          "routerLink": "auth/tipos-productos",
+          "model": "view_tipoproducto"
+      }
+      ,
+      {
+          "text": "Producto",
+          "icon": "inventory",
+          "routerLink": "auth/productos",
+          "model": "view_producto"
+      }
+
+  ]
+},
+{
+  "text": "Perfil del sistema",
+  "icon": "groups",
+  "model": "Perfiles",
+  "children": [{
+          "text": "Entidad",
+          "icon": "corporate_fare",
+          "routerLink": "/sales/add",
+          "model": ""
+      },
+      {
+          "text": "Persona",
+          "icon": "boy",
+          "routerLink": "/sales/history",
+          "model": "view_persona"
+      }
+      ,
+      {
+          "text": "Tipo de persona",
+          "icon": "attribution",
+          "routerLink": "/sales/history",
+          "model": ""
+      }
+      ,
+      {
+          "text": "Aréa profesional",
+          "icon": "group_auto",
+          "routerLink": "/sales/history",
+          "model": ""
+      }
+      ,
+      {
+          "text": "Prefesión",
+          "icon": "person_apron",
+          "routerLink": "/sales/history",
+          "model": ""
+      }
+  ]
+},
+{
+  "text": "Usuarios",
+  "icon": "analytics",
+  "model": "Permisos",
+  "children": [{
+          "text": "CMI de Usaurios",
+          "icon": "account_box",
+          "routerLink": "auth/permisos",
+          "model": "view_account"
+      }
+  ]
+}
+]

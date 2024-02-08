@@ -1,0 +1,63 @@
+
+<mat-toolbar fxLayout="row" color="primary">
+
+  <button *ngIf="logueado" mat-icon-button (click)="onMenuToggleDispatch()" >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span fxFlex>{{titiloPagina}}</span>
+
+  <button mat-button *ngFor="let item of menuItems" [fxShow]="item.showOnDesktop" [fxShow.xs]="item.showOnMobile"
+      [fxShow.sm]="item.showOnTablet" [routerLink]=item.routerLink routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+        true}">
+      <mat-icon class="mr">{{item.icon}}</mat-icon>
+      {{item.label}}
+  </button>
+  <button mat-button *ngIf="!logueado"  [fxShow]="registar.showOnDesktop" [fxShow.xs]="registar.showOnMobile"
+        [fxShow.sm]="registar.showOnTablet"  (click)="GetUsuario()"  >
+        <mat-icon class="mr">{{registar.icon}}</mat-icon>
+        {{registar.label}}
+        </button>
+
+  <button mat-button *ngIf="logueado"  [fxShow]="cerrar_sesion.showOnDesktop" [fxShow.xs]="cerrar_sesion.showOnMobile"
+        [fxShow.sm]="cerrar_sesion.showOnTablet"  (click)="CerrarSesion()" >
+        <mat-icon class="mr">{{cerrar_sesion.icon}}</mat-icon>
+        {{cerrar_sesion.label}}
+  </button>
+
+  <ng-container>
+      <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+          <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #dropMenu="matMenu">
+        <ng-container >
+          <button mat-menu-item *ngIf="!logueado"  [fxShow]="!registar.showOnDesktop" [fxShow.xs]="!registar.showOnMobile"
+                [fxShow.sm]="!registar.showOnTablet"  (click)="GetUsuario()"  >
+                <mat-icon class="mr">{{registar.icon}}</mat-icon>
+                {{registar.label}}
+          </button>
+          <mat-divider></mat-divider>
+      </ng-container>
+      <ng-container>
+          <button mat-menu-item *ngIf="logueado"  [fxShow]="!cerrar_sesion.showOnDesktop" [fxShow.xs]="!cerrar_sesion.showOnMobile"
+                  [fxShow.sm]="!cerrar_sesion.showOnTablet"  (click)="CerrarSesion()" >
+                  <mat-icon class="mr">{{cerrar_sesion.icon}}</mat-icon>
+                  {{cerrar_sesion.label}}
+          </button>
+           <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container *ngFor="let item of menuItems">
+              <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
+                  <button mat-menu-item [routerLink]=item.routerLink routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+                    true}">
+                      <mat-icon class="mr">{{item.icon}}</mat-icon>
+                      {{item.label}}
+                  </button>
+                  <mat-divider></mat-divider>
+              </div>
+          </ng-container>
+      </mat-menu>
+  </ng-container>
+
+
+</mat-toolbar>

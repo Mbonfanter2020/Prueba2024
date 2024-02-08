@@ -1,0 +1,10 @@
+
+<h1 mat-dialog-title>{{TituloAccion}}</h1>
+<div mat-dialog-content>
+  ¿Esta seguro que desea {{ComponeteEliminar}}?
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button color="primary"
+  (click)="comfirmarEliminar()"  cdkFocusInitial>{{TituloBoton}}</button>
+</div>
